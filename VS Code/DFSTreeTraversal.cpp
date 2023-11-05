@@ -6,15 +6,12 @@ struct node {
   node *left;
   node *right;
 
-
-
   node(int data) {
     this->data = data;
     this->left = nullptr;
     this->right = nullptr;
   }
 
- 
 };
 
 node *tree() {
@@ -53,17 +50,17 @@ void printPreOrder(node *root) {
 void printInOrder(node *root) {
   if (root != nullptr) {
     
-    printPreOrder(root->left);
+    printInOrder(root->left);
     cout << root->data << " ";
-    printPreOrder(root->right);
+    printInOrder(root->right);
   }
   
 }
 void printPostOrder(node *root) {
   if (root != nullptr) {
     
-    printPreOrder(root->left);
-    printPreOrder(root->right);
+    printPostOrder(root->left);
+    printPostOrder(root->right);
     cout << root->data << " ";
   }
 }
